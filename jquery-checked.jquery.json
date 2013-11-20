@@ -1,0 +1,26 @@
+{
+  "name": "jquery-checked",
+  "title": "jQuery Checked",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/cqiannum/jquery-checked",
+  "author": {
+    "name": "cqian",
+    "email": "1589856452@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cqiannum/jquery-checked.git"
+  },
+  "bugs": "https://github.com/cqiannum/jquery-checked/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/cqiannum/jquery-checked/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}
