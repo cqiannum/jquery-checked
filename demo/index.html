@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>    <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <!-->   <html class="no-js"> <!--<![endif]>-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>jquery-checked</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/prism.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/skin.css">
+
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/prism.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/jquery.toc.js"></script>
+		<script src="../src/jquery-checked.js"></script>
+
+		<style type="text/css">
+			.example {
+				background-color: #f8f8f8;
+			}
+			i {
+				font-style: normal;
+				padding: 0 5px;
+			}
+			form {
+				margin-top: 50px;
+			}
+			th {
+				text-align: right;
+				vertical-align: top;
+				padding-right: 5px;
+			}
+		</style>
+
+	</head>
+	<body>
+	<!--[if lt IE 7]>
+		<p class="chromeframe">
+			You are using an outdated browser.<a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">Install Google Chrome Frame</a> to better experience this site.
+		</p>
+	<![endif]-->	
+
+	<div id="toc"></div>
+	<div id="wrapper">
+		<form action="" method="post" id="check_form">
+			<table>
+				<thead>
+					<!-- <tr>
+						<th>The form validate</th>
+					</tr> -->
+				</thead>
+				<tbody>
+					<tr>
+						<th>userName:</th>
+						<td><input type="text" name="username" /></td>
+					</tr>
+					<tr>
+						<th>mail:</th>
+						<td><input type="text" name="email"></td>
+					</tr>
+					<tr>
+						<th>passWord:</th>
+						<td><input type="password" name="pwd" /></td>
+					</tr>
+					<tr>
+						<th>passAgain:</th>
+						<td><input type="password" mame="pwd1" /></td>
+					</tr>
+					<tr>
+						<th>age:</th>
+						<td><input type="text" name="age" /></td>
+					</tr>
+					<tr>
+						<th>description:</th>
+						<td><textarea></textarea></td>
+					</tr>
+					<tr>
+						<th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+						<td><input type="submit" name="btn"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<script>
+		var inputs = [{
+			name: "username",
+			type: "chn"
+		},{ 
+			name:"email",	
+			type:"email"
+		},{ 
+			name:"pwd",	
+			type:"len4"
+		},{ 
+			name:"pwd1",	
+			type:'eq',		
+			errorMsg:'两次输入密码不匹配',	
+			eqto:'pwd'
+		},{ 
+			name:"age",	
+			between:[18,78],
+			focusMsg:'18< >78',
+			errorMsg:'18< >78'
+		}
+		];
+
+		var regular = {
+				"email": [/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,"邮箱格式不对"],
+				"username": [/^[#]/,"不能这样写"],
+				"password": [/(lw)$/,"我要发火了"],
+				"eng": [/^[A-Za-z]+$/,"只能输入英文"],
+				"chn": [/^[\u0391-\uFFE5]+$/,"只能输入汉字"],
+				"len4": [/^\s*[\s\S]{4,50}\s*$/,"密码需要超过4位"]
+		};	
+
+		$("#check_form").checked({
+	        inputs:inputs,
+	        regulars:regular
+	   	});
+	</script>
+	<script>
+		(function(){
+    		$('#toc').toc();
+    	})();
+	</script>
+	</body>
+</html>

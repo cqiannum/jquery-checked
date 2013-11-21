@@ -1,0 +1,49 @@
+.focus_input,.right_input,.error_input,.ajax_checking_input{
+	background-image:url(tip.png)!important;
+	background-repeat:no-repeat!important;
+}
+.focus_input{
+	background-position:right 3px!important;
+}
+.right_input{
+	background-position:right -341px!important;
+	background-color:#9BDF70!important;
+}
+.error_input{
+	background-position:right -688px!important;
+	box-shadow:1px 1px 15px rgba(255,167,155,0.8)!important;
+	border-color:rgba(255,167,155,0.8)!important;
+}
+.ajax_checking_input{
+	background-position:right 6px!important;
+}
+
+/*提示的样式*/
+.input_tip{
+	letter-spacing:1px;
+	text-align:center;
+	padding:2px 0;
+	display:inline-block;
+	white-space: nowrap;
+	overflow:hidden;
+	border-radius:2px;
+}
+.focus_tip{color:#FF6600;background:#E6FFE6;}
+.error_tip{
+	color:#FF0000;
+	background:#FFF2E9;
+	box-shadow:1px 1px 15px rgba(255,167,155,0.8)!important;
+}
+.ajax_checking_tip{color:#009828;background:#FF6600;}
+
+input,textarea{
+	width:250px;
+	font-size:16px;
+	padding:3px 4px;
+	padding-right:27px;
+	background-position:right 100px;
+	background-repeat:no-repeat;
+	transition: all 0.3s ease 0s;
+	 -webkit-transition: all 0.5s ease-in-out 0s;
+	background-image:url(tip.png);
+}
