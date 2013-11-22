@@ -48,9 +48,9 @@
             });
 
             //submit
-            $("[type=submit]").on("submit", function() {
+            $("form").on("submit", function(e) {
                 var result = true,
-                    form = $(this).parents("form");
+                    form = $(e.target);
 
                 $.each(form.find("input, textarea"), function(i,n) {
                     self.initContext($(n), self.inps);
@@ -61,6 +61,10 @@
                     e.preventDefault();
                 }
             });
+
+            // $("form").submit(function() {
+            //     alert("aa")
+            // });
         },
 
         tipStatus: function(type, inp, msg) {
@@ -86,8 +90,8 @@
         },
 
         checkEq: function(set, inp) {
-            if(set.type === "eq" && set.eqto) {
-                if(inp.val() === inp.parents("form").find("[name='"+ set.eqto +"']").val()) {
+            if(set.type == "eq" && set.eqto) {
+                if(inp.val() == inp.parents("form").find("[name='"+ set.eqto +"']").val()) {
                     this.tipStatus("right", inp, set.rightMsg);
                     return true;
                 } else {
@@ -166,7 +170,7 @@
         },
 
         initContext: function(inp, inps) {
-            if(!inp.data("tip") && inp.attr("name") && inps[inp.attr("name")]) {
+            if((!inp.data("tip")) && inp.attr("name") && inps[inp.attr("name")]) {
                 var tip = $("<span class='input_tip' style='display: none;'></span>");
 
                 inp.data("tip", tip).data("set", inps[inp.attr("name")]);
@@ -183,7 +187,7 @@
             if(inp.data("tip")) {
                 var set = inp.data("set");
 
-                return (this.checkReg(set, inp) && this.checkEq(set, inp) && this.checkBet(set, inp) && this.ajaxCheck(set, inp));
+                return (this.checkEq(set, inp) && this.checkReg(set, inp) && this.checkBet(set, inp) && this.ajaxCheck(set, inp));
             } else {
                 return true;
             }

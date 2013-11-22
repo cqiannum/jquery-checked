@@ -71,7 +71,7 @@
 					</tr>
 					<tr>
 						<th>passAgain:</th>
-						<td><input type="password" mame="pwd1" /></td>
+						<td><input type="password" name="pwda" /></td>
 					</tr>
 					<tr>
 						<th>age:</th>
@@ -94,16 +94,16 @@
 			name: "username",
 			type: "chn"
 		},{ 
-			name:"email",	
-			type:"email"
+			name: "email",	
+			type: "email"
 		},{ 
-			name:"pwd",	
-			type:"len4"
+			name: "pwd",	
+			type: "len4"
 		},{ 
-			name:"pwd1",	
-			type:'eq',		
-			errorMsg:'两次输入密码不匹配',	
-			eqto:'pwd'
+			name: "pwda",	
+			type: "eq",		
+			errorMsg: '两次输入密码不匹配',	
+			eqto: 'pwd'
 		},{ 
 			name:"age",	
 			between:[18,78],
